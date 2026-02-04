@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Field Service • Download</title>
+  <title>LedWave • Download</title>
 
   <style>
     :root {
@@ -13,6 +13,9 @@
       --card: #111827;
       --text: #e5e7eb;
       --muted: #9ca3af;
+      --warning: #facc15;
+      --info: #38bdf8;
+      --border-soft: rgba(255, 255, 255, 0.08);
     }
 
     * {
@@ -44,23 +47,33 @@
         var(--card)
       );
       border-radius: 20px;
-      padding: 32px;
+      padding: 18px;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.06);
       text-align: center;
     }
 
     .logo {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.4px;
-      margin-bottom: 8px;
     }
 
     .subtitle {
       font-size: 14px;
       color: var(--muted);
+      margin-top: 6px;
       margin-bottom: 28px;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .download-btn {
@@ -80,64 +93,117 @@
       box-shadow: 0 10px 30px rgba(79, 70, 229, 0.45);
     }
 
+    .download-btn.secondary {
+      background: linear-gradient(135deg, #334155, #475569);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
     .download-btn:hover {
       transform: translateY(-2px);
-      background: linear-gradient(
-        135deg,
-        var(--primary-dark),
-        var(--primary)
-      );
       box-shadow: 0 14px 40px rgba(79, 70, 229, 0.6);
     }
 
     .info {
-      margin-top: 22px;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      padding: 16px 0;
       font-size: 13px;
-      color: var(--muted);
       line-height: 1.6;
+      color: var(--muted);
     }
 
+    .install-info {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #bae6fd;
+      text-align: left;
+    }
+
+    .warning {
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.25);
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #fde68a;
+      text-align: left;
+    }
+    
+    .danger {
+		  background: rgba(239, 68, 68, 0.1);
+		  border: 1px solid rgba(239, 68, 68, 0.25);
+		  border-radius: 14px;
+		  padding: 16px;
+		  font-size: 13px;
+		  line-height: 1.6;
+		  color: #fecaca;
+		  text-align: left;
+		}
+
     .footer {
-      margin-top: 32px;
+      margin-top: 28px;
       text-align: center;
       font-size: 12px;
       color: #6b7280;
-    }
-
-    .apk-icon {
-      font-size: 36px;
-      margin-bottom: 16px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="card">
-      <div class="apk-icon">📱</div>
 
-      <div class="logo">Field Service</div>
+      <div class="logo">LedWave - Field Service</div>
       <div class="subtitle">
-        Baixe a versão mais recente do aplicativo
+        Download do aplicativo Android (APK)
       </div>
-
-      <a
-        href="./field-services-release.apk"
-        class="download-btn"
-        download
-      >
-        ⬇️ Download do APK
-      </a>
-
-      <div class="info">
-        • Versão 4.0.0<br />
+      
+      <div class="section info">
         • Compatível com Android<br />
         • Instalação manual (APK)<br />
         • Sempre aponta para a versão mais recente
       </div>
+
+      <div class="section buttons">
+        <a href="./field-services-release.apk" class="download-btn" download>
+          ⬇️ Download APK • Produção <span id="prodVersion">...</span>
+        </a>
+        
+        <a href="./field-services-release.apk" class="download-btn secondary" download>
+          ⬇️ Download APK • QA <span id="qaVersion">...</span>
+        </a>
+      </div>
+
+      <div class="section install-info">
+        ℹ️ <strong>Como instalar o APK:</strong><br />
+        1. Baixe o arquivo APK clicando em um dos botões acima.<br />
+        2. Abra o arquivo baixado no seu celular.<br />
+        3. Caso solicitado, permita a instalação de apps dessa fonte.<br />
+        4. Confirme a instalação e aguarde a conclusão.
+      </div>
+
+      <div class="section warning">
+        ⚠️ <strong>Aviso:</strong><br />
+        Durante a instalação, o Android pode exibir um alerta informando que
+        o aplicativo pode ser malicioso.
+        <br />
+        Isso é <strong>normal</strong> para aplicativos instalados via APK fora
+        da Play Store. Basta confirmar a instalação para continuar.
+      </div>
+      
+      <div class="section danger">
+			  🚫 <strong>Aviso importante:</strong><br />
+			  Este link é de <strong>uso interno</strong>.<br />
+			  <strong>Não compartilhe</strong> com pessoas que não fazem parte do projeto.
+			</div>
     </div>
 
     <div class="footer">
-      <span id="year"></span> Field Service • Distribuição interna
+      <span id="year"></span> • BRFConsulting / LedWave • Distribuição interna
     </div>
   </div>
 
@@ -146,4 +212,26 @@
       new Date().getFullYear();
   </script>
 </body>
+
+<script>
+  async function loadVersion(id, url) {
+    try {
+      const res = await fetch(url);
+      const text = await res.text();
+      document.getElementById(id).textContent = text.replace(/"/g, "");
+    } catch {
+      document.getElementById(id).textContent = "";
+    }
+  }
+
+  loadVersion(
+    "qaVersion",
+    "https://field-service-dev-e78fc3d6d358.herokuapp.com/version/required"
+  );
+
+  loadVersion(
+    "prodVersion",
+    "https://field-service-c770e658da59.herokuapp.com/"
+  );
+</script>
 </html>
