@@ -193,11 +193,11 @@
 			
 			<div class="section buttons">
 	      <a href="./field-services-release.apk" class="download-btn" download>
-	        ⬇️ Download APK • Produção • <span id="prodVersion">...</span>
+	        Baixar APK • Produção • <span id="prodVersion">...</span>
 	      </a>
 	        
 	      <a href="./field-services-release.apk" class="download-btn secondary" download>
-	        ⬇️ Download APK • QA • <span id="qaVersion">...</span>
+	        Baixar APK • QA • <span id="qaVersion">...</span>
 	      </a>
       </div>
     </div>
@@ -218,7 +218,7 @@
     try {
       const res = await fetch(url);
       const text = await res.text();
-      document.getElementById(id).textContent = text.replace(/"/g, "v");
+      document.getElementById(id).textContent = text.replace(/"/g, "");
     } catch {
       document.getElementById(id).textContent = "";
     }
