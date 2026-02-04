@@ -168,19 +168,9 @@
         • Sempre aponta para a versão mais recente
       </div>
 
-      <div class="section buttons">
-        <a href="./field-services-release.apk" class="download-btn" download>
-          ⬇️ Download APK • Produção <span id="prodVersion">...</span>
-        </a>
-        
-        <a href="./field-services-release.apk" class="download-btn secondary" download>
-          ⬇️ Download APK • QA <span id="qaVersion">...</span>
-        </a>
-      </div>
-
       <div class="section install-info">
         ℹ️ <strong>Como instalar o APK:</strong><br />
-        1. Baixe o arquivo APK clicando em um dos botões acima.<br />
+        1. Baixe o arquivo APK clicando em um dos botões abaixo.<br />
         2. Abra o arquivo baixado no seu celular.<br />
         3. Caso solicitado, permita a instalação de apps dessa fonte.<br />
         4. Confirme a instalação e aguarde a conclusão.
@@ -200,6 +190,16 @@
 			  Este link é de <strong>uso interno</strong>.<br />
 			  <strong>Não compartilhe</strong> com pessoas que não fazem parte do projeto.
 			</div>
+			
+			<div class="section buttons">
+	      <a href="./field-services-release.apk" class="download-btn" download>
+	        ⬇️ Download APK • Produção • <span id="prodVersion">...</span>
+	      </a>
+	        
+	      <a href="./field-services-release.apk" class="download-btn secondary" download>
+	        ⬇️ Download APK • QA • <span id="qaVersion">...</span>
+	      </a>
+      </div>
     </div>
 
     <div class="footer">
@@ -218,7 +218,7 @@
     try {
       const res = await fetch(url);
       const text = await res.text();
-      document.getElementById(id).textContent = text.replace(/"/g, "");
+      document.getElementById(id).textContent = text.replace(/"/g, "v");
     } catch {
       document.getElementById(id).textContent = "";
     }
@@ -231,7 +231,7 @@
 
   loadVersion(
     "prodVersion",
-    "https://field-service-c770e658da59.herokuapp.com/"
+    "https://field-service-c770e658da59.herokuapp.com/version/required"
   );
 </script>
 </html>
